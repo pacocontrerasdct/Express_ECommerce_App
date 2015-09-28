@@ -4,12 +4,12 @@ var User = mongoose.model('User');
 
 var orderSchema = new mongoose.Schema({
   price: String,
-  createdAt: Date,
+  createdAt: String,
   adress: { street: String,
             postCode: String,
             town: String,
             country: String },
-  products: { type: mongoose.Schema.ObjectId, ref: 'Product' },
+  products: [{ type: mongoose.Schema.ObjectId, ref: 'Product' }],
   user: [User.schema]
 })
 
@@ -20,3 +20,7 @@ module.exports = Order;
 
 // Products(Array of Product references)
 // User(Embedded User)
+
+
+//var Product = mongoose.model('Product');
+ // products: [Product.schema],
